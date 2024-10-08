@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compteur +3</title>
+    <title>Compteurs AnneChou & HugoChou</title>
     <style>
         body {
             display: flex;
@@ -12,26 +12,83 @@
             justify-content: center;
             height: 100vh;
             font-family: Arial, sans-serif;
+            background-color: #FAE3DC;
+            color: #6B4226;
+            margin: 0;
         }
-        #counter {
-            font-size: 2em;
+        h1 {
+            color: #6B4226;
+            margin-bottom: 20px;
+        }
+        .counter-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin: 20px;
+        }
+        .counter {
+            font-size: 2em;
+            margin: 10px;
+            color: #8C4A2F;
         }
         button {
             padding: 10px 20px;
             font-size: 1em;
+            margin: 5px;
+            border: none;
+            color: white;
+            background-color: #D27D54;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #B5683C;
+        }
+        .reset-button {
+            background-color: #A63A2E;
+            margin-top: 20px;
+        }
+        .reset-button:hover {
+            background-color: #8C2E24;
         }
     </style>
 </head>
 <body>
-    <div id="counter">0</div>
-    <button onclick="addThree()">Ajouter +3</button>
+    <h1>Compteurs AnneChou & HugoChou</h1>
+    
+    <div class="counter-container">
+        <div>AnneChou</div>
+        <div id="anne-counter" class="counter">0</div>
+        <button onclick="addThreeToAnne()">Ajouter +3</button>
+    </div>
+    
+    <div class="counter-container">
+        <div>HugoChou</div>
+        <div id="hugo-counter" class="counter">0</div>
+        <button onclick="addThreeToHugo()">Ajouter +3</button>
+    </div>
+    
+    <button class="reset-button" onclick="resetCounters()">Réinitialiser</button>
 
     <script>
-        let count = 0;
-        function addThree() {
-            count += 3;
-            document.getElementById('counter').innerText = count;
+        let anneCount = 0;
+        let hugoCount = 0;
+
+        function addThreeToAnne() {
+            anneCount += 3;
+            document.getElementById('anne-counter').innerText = anneCount;
+        }
+
+        function addThreeToHugo() {
+            hugoCount += 3;
+            document.getElementById('hugo-counter').innerText = hugoCount;
+        }
+
+        function resetCounters() {
+            anneCount = 0;
+            hugoCount = 0;
+            document.getElementById('anne-counter').innerText = anneCount;
+            document.getElementById('hugo-counter').innerText = hugoCount;
         }
     </script>
 </body>
