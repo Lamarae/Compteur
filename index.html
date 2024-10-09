@@ -71,24 +71,35 @@
     <button class="reset-button" onclick="resetCounters()">Réinitialiser</button>
 
     <script>
-        let anneCount = 0;
-        let hugoCount = 0;
+        // Initialisation des valeurs des compteurs depuis le Local Storage
+        let anneCount = parseInt(localStorage.getItem('anneCount')) || 0;
+        let hugoCount = parseInt(localStorage.getItem('hugoCount')) || 0;
 
+        // Mise à jour des éléments affichant les compteurs
+        document.getElementById('anne-counter').innerText = anneCount;
+        document.getElementById('hugo-counter').innerText = hugoCount;
+
+        // Fonctions d'ajout pour chaque compteur avec sauvegarde dans le Local Storage
         function addThreeToAnne() {
             anneCount += 3;
             document.getElementById('anne-counter').innerText = anneCount;
+            localStorage.setItem('anneCount', anneCount);
         }
 
         function addThreeToHugo() {
             hugoCount += 3;
             document.getElementById('hugo-counter').innerText = hugoCount;
+            localStorage.setItem('hugoCount', hugoCount);
         }
 
+        // Fonction de réinitialisation des compteurs
         function resetCounters() {
             anneCount = 0;
             hugoCount = 0;
             document.getElementById('anne-counter').innerText = anneCount;
             document.getElementById('hugo-counter').innerText = hugoCount;
+            localStorage.setItem('anneCount', anneCount);
+            localStorage.setItem('hugoCount', hugoCount);
         }
     </script>
 </body>
